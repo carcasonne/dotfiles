@@ -1,0 +1,76 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Solaris;
+}
+
+@font-face {
+    font-family: "Solaris";
+    src:
+      local("Trickster"),
+      url("ressources/SolarisTest-Regular.otf") format("opentype");
+  }
+  
+
+.content-container {
+    width: 400px;
+    height: 800px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.content-container h1 {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.divider {
+    height: 100px;
+}
+
+.form-container {
+    padding-top: 30px;
+}
+
+.form-container p  {
+    color: rgba(255, 255, 255, 0.701);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.form-container div {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin: 0.2em 0;
+}
+.form-container input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(19, 19, 19);
+    color: #fff;
+    border: none;
+    outline: none;
+    padding-left: 0.8em;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+.form-container input:focus::placeholder {
+    color: #fff;
+}
+
+.text {
+    font-size: 0.8em;
+    margin-top: 0.5em;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.625);
+}
+.text a {
+    color: rgba(255, 255, 255, 0.911);
+}

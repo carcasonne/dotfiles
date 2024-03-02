@@ -1,0 +1,37 @@
+version: "3"
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ".\\nginx\\nginx.conf:/etc/nginx/nginx.conf"
+      - ".\\nginx\\.htpasswd:/etc/nginx/.htpasswd"
+      - ".\\nginx\\mime.types:/etc/nginx/mime.types"
+      - ".\\nginx\\www:/etc/nginx/www"
+      - "E:\\Programmer\\wacs\\crt:/etc/nginx/ssl/"
+  navidrome:
+    image: deluan/navidrome:latest
+    user: 1000:1000 # should be owner of volumes
+    ports:
+      - "4533:4533"
+    restart: unless-stopped
+    environment:
+      # Optional: put your config options customization here. Examples:
+      ND_SCANSCHEDULE: 1h
+      ND_LOGLEVEL: info  
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: /music
+      # last.fm
+      ND_LASTFM_ENABLED: true
+      ND_LASTFM_APIKEY: /run/secrets/lastfm_apikey
+      ND_LASTFM_SECRET: /run/secrets/lastfm_sharedsecret
+    volumes:
+      - "D:\\dotfiles\\server\\navidrome\\data:/data"
+      - "D:\\Downloads\\Music\\Tidable\\Album:/music:ro"
+secrets:
+  lastfm_apikey:
+    file: ./secrets/last.fm/apikey.txt
+  lastfm_sharedsecret:
+    file: ./secrets/last.fm/sharedsecret.txt
