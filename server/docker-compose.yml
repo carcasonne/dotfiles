@@ -28,7 +28,7 @@ services:
       ND_LASTFM_APIKEY: /run/secrets/lastfm_apikey
       ND_LASTFM_SECRET: /run/secrets/lastfm_sharedsecret
     volumes:
-      - "D:\\dotfiles\\server\\navidrome\\data:/data"
+      - ".\\navidrome\\data:/data"
       - "D:\\Downloads\\Music\\Tidable\\Album:/music:ro"
 secrets:
   lastfm_apikey:
